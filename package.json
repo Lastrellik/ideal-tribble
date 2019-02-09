@@ -1,0 +1,37 @@
+{
+  "name": "ideal-tribble",
+  "version": "1.0.0",
+  "description": "Program in the browser for extracting and formatting bank information from an Excel spreadsheet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "clean-build": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lastrellik/ideal-tribble.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lastrellik/ideal-tribble/issues"
+  },
+  "homepage": "https://github.com/Lastrellik/ideal-tribble#readme",
+  "dependencies": {
+    "tslint": "^5.12.1"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "chai": "^4.2.0",
+    "gulp": "^4.0.0",
+    "gulp-typescript": "^5.0.0",
+    "gulp-util": "^3.0.8",
+    "prettier": "^1.16.4",
+    "tsify": "^4.0.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3",
+    "vinyl-source-stream": "^2.0.0",
+    "watchify": "^3.11.0"
+  }
+}
