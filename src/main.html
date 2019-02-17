@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="main.js"></script>
+  </head>
+  <body>
+    Routing Number <input type="text" id="routingNumber"></input></br>
+    Account Number <input type="text" id="accountNumber"></input></br>
+    <input type="file" onChange="handleFile(this.files[0])"></input>
+    <a id="downloadCSV"></a>
+    <p id="resultCSV"></p>
+  </body>
+</html>
