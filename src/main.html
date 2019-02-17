@@ -4,10 +4,15 @@
     <script src="main.js"></script>
   </head>
   <body>
-    Routing Number <input type="text" id="routingNumber"></input></br>
-    Account Number <input type="text" id="accountNumber"></input></br>
-    <input type="file" onChange="handleFile(this.files[0])"></input>
+    Account: <select name="account" id="account">
+      <option value="nursery">Harder & Warner Nursery, INC.</option>
+      <option value="landscapes">H & W Landscapes, INC</option>
+    </select>
+    </br>
+    XLSX File: <input type="file" accept=".xlsx" onChange="handleFile(this.files[0])"></input>
+    </br>
     <a id="downloadCSV"></a>
+    </br>
     <p id="resultCSV"></p>
   </body>
 </html>

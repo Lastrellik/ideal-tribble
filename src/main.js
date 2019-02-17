@@ -1,4 +1,14 @@
 const rABS = true; // true: readAsBinaryString ; false: readAsArrayBuffer
+const accounts = {
+  "nursery":{
+    "account": "accountNumber",
+    "routing": "routingNumber"
+  },
+  "landscapes":{
+    "account": "accountNumber",
+    "routing": "routingNumber"
+  }
+};
 function handleFile(e) {
   var reader = new FileReader();
   reader.onload = function(e) {
@@ -9,10 +19,11 @@ function handleFile(e) {
     const desiredRows = rows.filter(row => row.Type && row.Type.includes('Check'));
     console.log(desiredRows);
     const recordType = "I";
-    const finalRowRecordType = "T";
-    const finalRowCommaSeparation = ",";
-    const routingNumber = document.getElementById('routingNumber').value;
-    const accountNumber = document.getElementById('accountNumber').value;
+    const finalRowRecordType = "T,";
+    const account = document.getElementById('account');
+    let selectedOption = account[account.selectedIndex].value;
+    const routingNumber = accounts[selectedOption].routing;
+    const accountNumber = accounts[selectedOption].account;
     let csvString = '';
     let totalBalance = 0;
     for(let row of desiredRows) {
@@ -24,7 +35,7 @@ function handleFile(e) {
       let additionalData = (row.Description && row.Description.includes(',')) ? '"' + row.Description + '"' : row.Description;
       csvString += [recordType, routingNumber, accountNumber, checkNumber, issueDate, amount, payeeName, additionalData].join(',') + '</br>';
     }
-    csvString += [finalRowRecordType, finalRowCommaSeparation, desiredRows.length, new Date().toLocaleDateString("en-US"), totalBalance.toFixed(2)].join(',');
+    csvString += [finalRowRecordType, desiredRows.length + ",", new Date().toLocaleDateString("en-US"), totalBalance.toFixed(2)].join(',');
     document.getElementById('resultCSV').innerHTML = csvString;
     let downloadCsvLink = document.getElementById('downloadCSV');
     downloadCsvLink.innerHTML = 'Download CSV';
